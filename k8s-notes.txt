@@ -1,0 +1,22 @@
+Kill all the deployments which in turn will kill all the running pods: kubectl delete deployment  --all
+
+ingress(having routing roles for nginx) is used with nginx to setup the routing in the cluster rather than using nodePort and using something like localhost:3xxxx
+
+To hit some pod directly in the postman we can make use of the port forwarding concept 
+kubectl.exe port-forward nats-depl-7d984cffb9-m9fpr 4222:4222
+
+To list all the context: kubectl config view
+
+To use a specific context: kubectl config use-context do-blr1-ticketing
+
+ To create kubectl secrets use : kubectl create secret generic jwt-secret --from-literal=JWT_KEY=123456
+
+To update any pod/depl with the latest image we can make use of the command
+
+kubectl set image object_type/object_name container_name=new _image_to_use
+
+kubetctl set image deployment/client-depl client=umeshbhat/multclient:v2
+
+ 
+
+ 

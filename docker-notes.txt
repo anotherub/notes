@@ -1,0 +1,69 @@
+docker(refers to the docker client) run(try to create and run a container) image(name of the image to run for the container) this runs the default command also for the image
+
+docker run image command this command is to use our own specific command. This command becomes the default command for that container which means that next time if we use try to use some other command with the container, it wont work
+
+docker ps shows the running container
+
+docker ps --all  lists all the containers ever created
+
+docker run = docker create + docker start
+
+docker create hello-world is used to create the container
+
+docker start -a containerID
+
+-a(attached) : it is used to watch the output from the running container and show on the terminal
+
+docker system prune  is used to delete  
+
+ - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - all dangling build cache
+
+docker logs containerId to see the logs of the container
+
+docker stop/kill container ID
+
+stop uses SIGTERM/ Helpful for cleanup thing. Should be ideally used
+
+kill used SIGKILL/ Kills the process immediately
+
+if stop doesn't shutdown in 10sec then kill is used
+
+ docker exec -it containerID command
+
+exec is used to run another command
+
+command  is what we want to get executed bydefault
+
+it is used to give input to the container. made of  -i  and -t
+
+i is for input and t is used for nice format
+
+can also use docker run -it busybox sh
+*containers are isolated by default. They don't share data by default.
+
+docker build -t name .   for tagging the container with a custom name while creation using a docker file
+
+COPY source destination
+
+ 
+
+docker run -p locahost:docker image imagename
+
+docker run image = docker-compose up
+
+docker build . + docker run image= docke-compose up --build   build is used to implement new changes
+
+ docker rm -f $(docker ps -a -q)  to delete all containers
+
+docker-compose ps / up / down  should be run in the same directory of the docker-compose file
+
+docker run -it -p 3000:3000 -v /app/node_modules -v ${PWD}:/app -e CHOKIDAR_USEPOLLING=true imageID
+
+ 
+
+ 
+
+ 
